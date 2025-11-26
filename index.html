@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 网页标签标题已改为公司全称 -->
+    <title>WING AUTO ACCESSORY MANUFACTORY LIMITED</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'"> 
+                <!-- 2. Logo 旁的文字：自动切换中英文简称 -->
+                <span class="company-text" data-i18n="company_short">WING AUTO</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#about" data-i18n="nav_about">About</a></li>
+                    <li><a href="#products" data-i18n="nav_products">Products</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <select id="language-selector" onchange="changeLanguage(this.value)">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="cn">🇨🇳 中文</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                </select>
+
+                <a href="https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q" target="_blank" class="btn-main">
+                    <i class="fa-solid fa-store"></i> <span data-i18n="btn_alibaba">Alibaba Shop</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 头部海报 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- 3. 海报大标题改为公司名 -->
+            <h1 data-i18n="hero_title">WING AUTO ACCESSORY</h1>
+            <p data-i18n="hero_desc">Professional Manufacturer of Seat Covers & Car Mats Since 2010.</p>
+            <a href="#about" class="btn-hero" data-i18n="btn_view_products">View Factory</a>
+        </div>
+    </section>
+
+    <!-- 工厂介绍 (About Us) -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2 class="section-title" style="text-align: left;" data-i18n="nav_about">About Us</h2>
+                    <h3 class="about-subtitle" data-i18n="about_subtitle">Professional Manufacturer Since 2010</h3>
+                    <p class="about-desc" data-i18n="about_desc_long">
+                        WING AUTO ACCESSORY MANUFACTORY LIMITED is a leading factory specialized in auto interior accessories. With over 10 years of experience, we provide high-quality seat covers, floor mats, and sun shades to global markets. We have our own R&D team and molding workshop to support OEM/ODM customization.
+                    </p>
+                    <div class="mini-features">
+                        <div class="mini-feat">
+                            <i class="fa-solid fa-medal"></i> <span data-i18n="feat1_title">Quality Assurance</span>
+                        </div>
+                        <div class="mini-feat">
+                            <i class="fa-solid fa-truck-fast"></i> <span data-i18n="feat2_title">Fast Shipping</span>
+                        </div>
+                        <div class="mini-feat">
+                            <i class="fa-solid fa-compass-drafting"></i> <span data-i18n="feat3_title">Custom Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-video">
+                    <video controls poster="images/video-poster.jpg">
+                        <source src="images/company-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- 滚动相册 -->
+            <div class="gallery-section">
+                <h3 class="gallery-title" data-i18n="gallery_title">Factory Tour & Showroom</h3>
+                <div class="gallery-wrapper">
+                    <div class="scrolling-track">
+                        <!-- 第一组图片 -->
+                        <div class="card"><img src="images/gallery-1.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-2.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-3.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-4.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-5.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-6.jpg" alt="Factory"></div>
+                        <!-- 第二组图片 (复制用于无缝循环) -->
+                        <div class="card"><img src="images/gallery-1.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-2.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-3.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-4.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-5.jpg" alt="Factory"></div>
+                        <div class="card"><img src="images/gallery-6.jpg" alt="Factory"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示区 -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section_hot">Hot Selling Products</h2>
+            <p class="section-subtitle" data-i18n="section_hot_sub">Direct from Factory to Middle East & Global Markets</p>
+            <div class="product-grid" id="product-grid-container">
+                <!-- JS 生成内容 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 (包含全称和地址) -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span data-i18n="footer_label_email">Email:</span>
+                    <a href="mailto:sales@wingauto.com">sales@wingauto.com</a> <!-- 记得改这里的邮箱 -->
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span data-i18n="footer_label_phone">Phone:</span>
+                    <a href="tel:+8613800000000" dir="ltr">+86-138-0000-0000</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-fax"></i>
+                    <span data-i18n="footer_label_fax">Fax:</span>
+                    <span dir="ltr">+86-755-12345678</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span data-i18n="footer_label_addr">Add:</span>
+                    <span data-i18n="footer_addr_val" style="max-width: 400px; text-align: left;">Shop 3B031, Yiyou Int'l Auto Parts Centre...</span>
+                </div>
+            </div>
+            
+            <!-- 4. 底部版权：显示公司全称 -->
+            <div class="copyright">
+                <p>&copy; 2025 <span data-i18n="company_full">WING AUTO ACCESSORY MANUFACTORY LIMITED</span>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 逻辑 -->
+    <script>
+        // 1. 产品数据
+        const productsData = [
+            {
+                id: "seat-cover",
+                image: "images/seat-cover.jpg",
+                moq: "30 Sets",
+                link: "https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q",
+                title: { en: "Universal / Custom Car Seat Covers", cn: "汽车座套 (通用/专车定制)", ar: "أغطية مقاعد السيارات (عالمية/مخصصة)" },
+                desc: {
+                    en: "PVC/PU/Leather/Fabric available. Custom colors. Hot selling for Toyota, Hyundai, Kia, Nissan ect",
+                    cn: "PVC/PU/真皮/布艺材质。原厂模具，颜色可定制（杏、黑、棕、酒红）。丰田/现代/起亚等",
+                    ar: "متوفر بـ PVC/PU/جلد/قماش. ألوان مخصصة. الأكثر مبيعاً لتويوتا، هيونداي، كيا، نيسان."
+                }
+            },
+            {
+                id: "dash-cover",
+                image: "images/dash-cover.jpg",
+                moq: "500 Pcs",
+                link: "https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q",
+                title: { en: "Car Dashboard Covers / Sun Shade", cn: "汽车避光垫 / 防晒垫", ar: "غطاء طبلون السيارة / واقي الشمس" },
+                desc: {
+                    en: "Polyester/Cotton/PVC material. Custom colors and thickness available. Protects dashboard from UV rays.",
+                    cn: "涤纶/棉/PVC材质，颜色厚度可定制。有效防止仪表台暴晒老化。",
+                    ar: "مواد بوليستر/قطن/PVC. ألوان وسماكة مخصصة. يحمي الطبلون من أشعة الشمس."
+                }
+            },
+            {
+                id: "floor-mat",
+                image: "images/floor-mat.jpg",
+                moq: "30 Sets",
+                link: "https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q",
+                title: { en: "Waterproof Car Floor Mats", cn: "汽车脚垫 (防水耐用)", ar: "فرشات أرضية السيارة (مقاومة للماء)" },
+                desc: {
+                    en: "High quality PVC, waterproof and durable. Single or Double layer. Supports 90% of car models globally.",
+                    cn: "优质PVC，防水耐用。单层/双层可选，支持全球90%车型。",
+                    ar: "PVC عالي الجودة، مقاوم للماء ومتين. طبقة واحدة أو مزدوجة. يدعم 90% من موديلات السيارات."
+                }
+            },
+            {
+                id: "steering-cover",
+                image: "images/steering-cover.jpg",
+                moq: "500 Pcs",
+                link: "https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q",
+                title: { en: "Car Steering Wheel Covers", cn: "汽车方向盘套", ar: "أغطية عجلة القيادة (دريكسون)" },
+                desc: {
+                    en: "Cotton/Polyester/PVC. Various styles and colors can be customized. Comfortable grip.",
+                    cn: "棉/涤纶/PVC材质。颜色款式可定制，手感舒适。",
+                    ar: "قطن/بوليستر/PVC. يمكن تخصيص الأنماط والألوان. ملمس مريح لليد."
+                }
+            },
+            {
+                id: "wool-mat",
+                image: "images/wool-mat.jpg",
+                moq: "200 Pcs",
+                link: "https://wingseatcover.en.alibaba.com/productlist.html?spm=a2700.shop_cp.88.17.6fd214d65RFs2Q",
+                title: { en: "Faux / Real Wool Car Mats", cn: "汽车长毛垫 (真毛/仿毛)", ar: "وسائد صوف للسيارة (طبيعي/صناعي)" },
+                desc: {
+                    en: "Real wool or Faux wool available. Custom hair length and colors. Luxury look for interior.",
+                    cn: "真羊毛或仿羊毛。毛长度和颜色可定制。提升内饰豪华感。",
+                    ar: "يتوفر صوف طبيعي أو صناعي. طول الوبر واللون حسب الطلب. مظهر فاخر للسيارة."
+                }
+            }
+        ];
+
+        // 2. 翻译词典 (已整合公司名称和地址)
+        const translations = {
+            en: {
+                // 公司名
+                company_short: "WING AUTO ACCESSORY",
+                company_full: "WING AUTO ACCESSORY MANUFACTORY LIMITED",
+                // 导航与英雄区
+                nav_home: "Home", nav_products: "Products", nav_about: "About Us", nav_contact: "Contact",
+                btn_alibaba: "Alibaba Shop",
+                hero_title: "WING AUTO ACCESSORY",
+                hero_desc: "Professional Manufacturer of Seat Covers & Car Mats Since 2010.",
+                btn_view_products: "View Factory",
+                // 产品
+                section_hot: "Hot Selling Products",
+                section_hot_sub: "Direct from Factory to Middle East & Global Markets",
+                btn_buy: "Inquiry Now",
+                // 优势
+                feat1_title: "Quality Assurance", feat1_desc: "Strict QC & Premium Materials.",
+                feat2_title: "Fast Shipping", feat2_desc: "On-time delivery for bulk orders.",
+                feat3_title: "Custom Service", feat3_desc: "Support OEM/ODM customization.",
+                // 关于我们
+                about_subtitle: "Professional Manufacturer Since 2010",
+                about_desc_long: "WING AUTO ACCESSORY MANUFACTORY LIMITED is a leading factory specialized in auto interior accessories. With over 10 years of experience, we provide high-quality seat covers, floor mats, and sun shades to global markets. We have our own R&D team and molding workshop to support OEM/ODM customization.",
+                gallery_title: "Factory Tour & Showroom",
+                // 底部联系
+                footer_label_email: "Email:", footer_label_phone: "Phone:", footer_label_fax: "Fax:",
+                footer_label_addr: "Add:",
+                footer_addr_val: "Shop 3B031, 3rd Floor, Yiyou Int'l Auto Parts Centre, No.155 Hengfu Rd, Guangzhou, China"
+            },
+            cn: {
+                // 公司名
+                company_short: "永奇汽车座套厂",
+                company_full: "广州市花都区市永奇汽车座套厂",
+                // 导航与英雄区
+                nav_home: "首页", nav_products: "产品中心", nav_about: "关于我们", nav_contact: "联系方式",
+                btn_alibaba: "访问阿里店铺",
+                hero_title: "永奇汽车座套厂",
+                hero_desc: "始于2010年，专注汽车座套、脚垫生产，源头工厂。",
+                btn_view_products: "参观工厂",
+                // 产品
+                section_hot: "热销产品推荐",
+                section_hot_sub: "工厂直销，专注中东及全球市场",
+                btn_buy: "立即询价",
+                // 优势
+                feat1_title: "品质保证", feat1_desc: "严格质检，精选优质原料。",
+                feat2_title: "快速发货", feat2_desc: "大宗订单准时交付。",
+                feat3_title: "定制服务", feat3_desc: "支持 OEM/ODM 来样定制。",
+                // 关于我们
+                about_subtitle: "始于2010年的专业制造商",
+                about_desc_long: "广州市花都区市永奇汽车座套厂是一家专注于汽车内饰用品的领先工厂。拥有超过10年的经验，致力于为全球市场提供高品质的座套、脚垫和避光垫。我们拥有自己的研发团队和模具车间，全力支持 OEM/ODM 定制服务。",
+                gallery_title: "工厂巡礼与展厅",
+                // 底部联系
+                footer_label_email: "邮箱:", footer_label_phone: "电话:", footer_label_fax: "传真:",
+                footer_label_addr: "地址:",
+                footer_addr_val: "广州市越秀区恒福路155号益友(国际)汽配用品展贸中心三楼3B031号铺"
+            },
+            ar: {
+                // 公司名 (阿语模式下显示英文品牌名较通用)
+                company_short: "WING AUTO ACCESSORY",
+                company_full: "WING AUTO ACCESSORY MANUFACTORY LIMITED",
+                // 导航
+                nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن", nav_contact: "اتصل بنا",
+                btn_alibaba: "متجر علي بابا",
+                hero_title: "WING AUTO ACCESSORY",
+                hero_desc: "مصنع محترف لأغطية المقاعد وفرشات السيارات منذ عام 2010.",
+                btn_view_products: "جولة في المصنع",
+                // 产品
+                section_hot: "المنتجات الأكثر مبيعاً",
+                section_hot_sub: "مباشرة من المصنع إلى الشرق الأوسط والأسواق العالمية",
+                btn_buy: "اطلب السعر الآن",
+                // 优势
+                feat1_title: "ضمان الجودة", feat1_desc: "مواد ممتازة وفحص جودة صارم.",
+                feat2_title: "شحن سريع", feat2_desc: "تسليم في الوقت المحدد للطلبات بالجملة.",
+                feat3_title: "خدمة التخصيص", feat3_desc: "ندعم التصنيع حسب الطلب (OEM/ODM).",
+                // 关于我们
+                about_subtitle: "مصنع محترف منذ عام 2010",
+                about_desc_long: "نحن مصنع رائد متخصص في إكسسوارات السيارات الداخلية. مع أكثر من 10 سنوات من الخبرة، نقدم أغطية مقاعد، وفرشات أرضية، وواقيات شمس عالية الجودة للأسواق العالمية. لدينا فريق بحث وتطوير خاص وورشة قوالب لدعم التخصيص (OEM/ODM).",
+                gallery_title: "جولة في المصنع والمعرض",
+                // 底部联系
+                footer_label_email: "البريد:", footer_label_phone: "هاتف:", footer_label_fax: "فاكس:",
+                footer_label_addr: "العنوان:",
+                footer_addr_val: "محل رقم 3B031، الطابق الثالث، مركز يييو الدولي لقطع غيار السيارات، رقم 155 طريق هنغفو، مقاطعة يوشيو، قوانغتشو، الصين"
+            }
+        };
+
+        // 3. 渲染和语言切换逻辑
+        function renderProducts(lang) {
+            const container = document.getElementById('product-grid-container');
+            if (!container) return; 
+            container.innerHTML = ''; 
+            productsData.forEach(product => {
+                const title = product.title[lang] || product.title['en'];
+                const desc = product.desc[lang] || product.desc['en'];
+                const btnText = translations[lang]['btn_buy'];
+                const imgSrc = product.image ? product.image : 'https://via.placeholder.com/600x600?text=No+Image';
+                const cardHTML = `
+                    <div class="product-card">
+                        <div class="product-image"><img src="${imgSrc}" alt="${title}" loading="lazy"></div>
+                        <div class="product-info">
+                            <h3>${title}</h3>
+                            <p class="desc">${desc}</p>
+                            <div class="action-area">
+                                <span class="price">MOQ: ${product.moq}</span>
+                                <a href="${product.link}" target="_blank" class="btn-alibaba"><i class="fa-solid fa-cart-shopping"></i> ${btnText}</a>
+                            </div>
+                        </div>
+                    </div>`;
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        function changeLanguage(lang) {
+            const htmlTag = document.documentElement;
+            if (lang === 'ar') {
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+            } else {
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', lang);
+            }
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            renderProducts(lang);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => { changeLanguage('en'); });
+    </script>
+</body>
+</html>

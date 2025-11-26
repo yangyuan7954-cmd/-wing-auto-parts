@@ -1,0 +1,511 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 默认英文字体 */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 当切换到中文时的字体 */
+html[lang="cn"] body {
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+/* 当切换到阿拉伯语时的字体 */
+html[lang="ar"] body {
+    font-family: 'Cairo', sans-serif;
+    /* 阿拉伯语字体通常需要稍微大一点才易读 */
+    font-size: 1.05rem; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 导航栏 */
+.header {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 修改后的 logo 样式 */
+.logo {
+    display: flex;       /* 让图片和文字横向排列 */
+    align-items: center; /* 垂直居中 */
+    gap: 10px;           /* 图片和文字之间的间距 */
+    color: #fff;         /* 文字颜色 */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 控制 Logo 图片的大小 */
+.logo img {
+    height: 40px;        /* 设置高度，宽度会自动等比例缩放 */
+    width: auto;         /* 保持比例 */
+    object-fit: contain; /* 防止图片变形 */
+}
+
+/* 如果你需要针对公司文字单独调整样式 */
+.logo .company-text {
+    /* 如果不想显示文字只显示图片，把这里改成 display: none; */
+    white-space: nowrap; /* 防止名字太长换行 */
+}
+
+/* 针对移动端稍微把 Logo 缩小一点，防止挤压 */
+@media (max-width: 768px) {
+    .logo img {
+        height: 30px;
+    }
+    .logo .company-text {
+        font-size: 1rem;
+    }
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+/* 处理 RTL 下的间距 */
+.nav-links li {
+    margin: 0 15px;
+}
+
+/* 新增：头部右侧区域 (包含语言选择和按钮) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 语言选择器样式 */
+#language-selector {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-main {
+    background-color: #ff6a00;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 图标和文字间距 */
+}
+
+.btn-main:hover {
+    background-color: #e65c00;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.btn-hero {
+    background-color: transparent;
+    border: 2px solid #ff6a00;
+    color: #ff6a00;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    transition: 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-hero:hover {
+    background-color: #ff6a00;
+    color: white;
+}
+
+/* 产品部分 */
+.products-section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 🟢 新的代码：完美适配 1:1 正方形图片 */
+.product-image {
+    width: 100%;
+    /* 强制图片区域变成正方形 (1:1)，适合电商产品 */
+    aspect-ratio: 1 / 1; 
+    background-color: #f9f9f9; /* 给图片加个淡淡的底色，显得高档 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    /* 核心修改：contain 表示“包含”，保证图片完整显示，绝不剪裁 */
+    object-fit: contain; 
+    padding: 10px; /* 图片稍微留点白边，不会顶格，看起来更精致 */
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-info .desc {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    height: 48px; /* 稍微增加高度以适应不同语言长度 */
+    overflow: hidden;
+}
+
+.action-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.btn-alibaba {
+    background-color: #ff6a00;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-alibaba:hover {
+    background-color: #e65c00;
+}
+
+/* 优势区域 */
+.features {
+    background-color: #fff;
+    padding: 3rem 0;
+    border-top: 1px solid #eee;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature-item {
+    padding: 1rem;
+    max-width: 300px;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: #ff6a00;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #888;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+/* ========= 核心：RTL (Right to Left) 适配 ========= */
+/* 当 HTML 标签有 dir="rtl" 时应用以下样式 */
+
+html[dir="rtl"] {
+    text-align: right; /* 默认文字靠右 */
+}
+
+/* 导航栏反转 */
+html[dir="rtl"] .nav-container {
+    flex-direction: row-reverse; 
+    /* Flexbox 自动会反转，但为了保险起见，或者在复杂布局中可能需要调整 */
+}
+
+/* 按钮内图标和文字的位置处理 */
+html[dir="rtl"] .btn-main, 
+html[dir="rtl"] .btn-alibaba {
+    flex-direction: row; /* 保持行显示，但 gap 属性会自动处理间距 */
+}
+
+/* 如果有 margin-left 的地方，在阿拉伯语下要变成 margin-right */
+/* 这里因为主要用了 Flexbox 和 gap，所以大部分布局会自动适应，无需大量修改 */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+/* 页脚容器布局 */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 联系信息区域 */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap; /* 如果屏幕太小自动换行 */
+    justify-content: center;
+    gap: 30px; /* 每一项之间的距离 */
+    margin-bottom: 10px;
+}
+
+/* 单个联系项 */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #bbb; /* 稍微淡一点的颜色 */
+}
+
+.contact-item i {
+    color: #ff6a00; /* 图标用橙色 */
+}
+
+.contact-item a:hover {
+    color: #ff6a00; /* 鼠标悬停变色 */
+    text-decoration: underline;
+}
+
+/* 手机端适配：让联系方式竖着排，不要挤在一起 */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* === 新版关于我们区域 === */
+.about-section {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+/* 布局容器：电脑上并排，手机上竖排 */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右各占50% */
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* 文字区域 */
+.about-subtitle {
+    font-size: 1.2rem;
+    color: #ff6a00;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.about-desc {
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+/* 视频区域 */
+.about-video video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 小图标列表 */
+.mini-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.mini-feat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.mini-feat i {
+    color: #ff6a00;
+}
+
+/* === 新版：自动无缝滚动相册 (优化版) === */
+.gallery-section {
+    overflow: hidden;
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.gallery-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden;
+    /* 给上下加点留白 */
+    padding: 10px 0;
+}
+
+.scrolling-track {
+    display: flex;
+    gap: 20px; /* 图片之间的间距 */
+    /* 
+       重要：动画必须足够宽
+       我们设定每张卡片 350px 宽 (电脑上约显示3张)
+       动画距离 = (350px + 20px间距) * 6张图 = 2220px
+    */
+    width: calc(370px * 12); 
+    animation: scroll-left 25s linear infinite; /* 速度调慢一点，25秒 */
+}
+
+.scrolling-track:hover {
+    animation-play-state: paused;
+}
+
+.card {
+    /* 
+       设置固定宽度：350px 
+       在普通电脑屏幕(1200px)上，350*3=1050，刚好显示3张多一点
+    */
+    width: 350px; 
+    flex-shrink: 0;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
+}
+
+/* 核心动画：必须和上面的宽度配合 */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 
+           向左移动 6 张图的距离 
+           Calculation: -(350px宽度 + 20px间距) * 6 = -2220px 
+        */
+        transform: translateX(-2220px);
+    }
+}
+
+/* 手机端适配：手机上350px太大了，改成小一点 */
+@media (max-width: 768px) {
+    .card {
+        width: 250px; /* 手机上显示一张半，引导用户知道后面还有图 */
+    }
+    
+    .scrolling-track {
+        /* 重新计算宽度: (250+20)*12 */
+        width: calc(270px * 12);
+    }
+
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { 
+            /* -(250 + 20) * 6 = -1620px */
+            transform: translateX(-1620px); 
+        }
+    }
+}
