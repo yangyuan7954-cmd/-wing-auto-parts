@@ -509,3 +509,114 @@ html[dir="rtl"] .btn-alibaba {
         }
     }
 }
+
+/* =========================================
+   手机端强制修复补丁 (Mobile Fix Patch)
+   请把这段代码放在 style.css 的最底部
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. 修复导航栏：防止 Logo 和文字挤成一团 */
+    .nav-container {
+        flex-direction: column; /* 垂直排列 */
+        gap: 15px;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: center; /* Logo 居中 */
+    }
+
+    .logo img {
+        height: 35px; /* 稍微缩小 Logo */
+    }
+
+    .company-text {
+        font-size: 1rem; /* 缩小公司名文字，防止换行 */
+    }
+
+    /* 隐藏中间的导航链接 (Home/Product...)，防止占位 */
+    .nav-links {
+        display: none; 
+    }
+
+    /* 头部右侧按钮居中 */
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; /* 如果屏幕太窄，允许换行 */
+    }
+
+    /* 2. 修复海报区域：高度自适应，防止文字被切掉 */
+    .hero {
+        height: auto !important; /* 取消固定高度 */
+        min-height: 300px;
+        padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* 缩小大标题 */
+    }
+
+    /* 3. 修复关于我们 (About) 布局 */
+    .about-container {
+        display: flex;
+        flex-direction: column-reverse; /* 手机上把视频放上面，文字放下面 */
+        gap: 20px;
+    }
+
+    .about-text h2 {
+        text-align: center !important;
+    }
+
+    /* 4. 重点修复：产品列表 (强制变为单列) */
+    .product-grid {
+        /* 强制手机上一行只显示一个产品，保证图片够大 */
+        grid-template-columns: 1fr !important; 
+        padding: 0 10px; /* 左右留点缝隙 */
+    }
+
+    .product-card {
+        width: 100%; /* 卡片占满屏幕宽度 */
+        margin-bottom: 20px;
+    }
+
+    /* 5. 修复产品图片不显示的问题 */
+    .product-image {
+        width: 100%;
+        /* 强制给一个高度，防止因为加载慢而高度塌陷 */
+        height: auto;
+        aspect-ratio: 1 / 1; /* 保持正方形 */
+        background-color: #fff; /* 加个白底 */
+    }
+
+    .product-image img {
+        /* 确保图片撑满容器 */
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* 6. 修复底部滚动图片 (防止溢出) */
+    .gallery-section {
+        width: 100vw; /* 限制宽度为屏幕宽度 */
+        overflow: hidden;
+    }
+
+    .card {
+        width: 200px !important; /* 手机上图片搞小一点 */
+    }
+    
+    /* 修正动画距离，防止滚动出现空白 */
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-1320px); } /* (200+20)*6 = 1320 */
+    }
+
+    /* 7. 底部地址修正 */
+    .footer-content {
+        text-align: center;
+        padding-bottom: 50px; /* 防止被手机浏览器底部栏遮挡 */
+    }
+}
